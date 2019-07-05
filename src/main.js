@@ -16,7 +16,7 @@ paypalLink.addEventListener('click', paypalweb);
 
 
 // console.log('Hello, world!');
-const amount = document.querySelector('.form__total span');
+// const amount = document.querySelector('.form__total span');
 // console.log(amount);
 // const form = document.querySelector('.form');
 // console.log(form.plan);
@@ -36,7 +36,7 @@ function changeCost() {
 inputs.forEach(input => input.addEventListener('click', changeCost));
 
 console.log('Hello, world!');
-const amount = document.querySelector('.form__total span');
+// const amount = document.querySelector('.form__total span');
 const subButton = document.querySelector('button[type="submit"]');
 
 const buttonAmount = document.querySelector('button span');
@@ -54,4 +54,3 @@ function toggleFunction() {
   this.classList.toggle('accordion--active');
 }
 accs.forEach(acc => acc.addEventListener('click', toggleFunction));
-
