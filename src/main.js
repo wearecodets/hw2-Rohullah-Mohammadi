@@ -37,10 +37,10 @@ const buttonAmount = document.querySelector('button span');
 // console.log(buttonAmount.textContent);
 // console.log(subButton.disabled);
 // console.log(amount);
-//if (amount.textContent != '$0') {
+/*if (amount.textContent != '$0') {
   subButton.disabled = false;
   buttonAmount.textContent = amount.textContent;
-}
+}*/
 // console.log('Hello, world!');
 const accs = document.querySelectorAll('.accordion');
 // console.log(accs);
