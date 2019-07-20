@@ -1,21 +1,21 @@
 const form = document.forms[0];
 const payment = form.elements.plan;
 
-payment.forEach(function(pembayaran) {
-  pembayaran.addEventListener('change', function() {
-    if (form.plan.value === 'Monthly') {
-      document.querySelector('.form__total').textContent = '30$';
-      document.querySelector('.form__pay span').textContent = '30$';
-    }
-
+payment.forEach(function(paying) {
+  paying.addEventListener('change', function() {
     if (form.plan.value === 'Annually') {
-      document.querySelector('.form__total').textContent = '300$';
-      document.querySelector('.form__pay span').textContent = '300$';
+      document.querySelector('.form__total').textContent = '$300';
+      document.querySelector('.form__pay span').textContent = '$300';
+    }
+    if (form.plan.value === 'Monthly') {
+      document.querySelector('.form__total').textContent = '$30';
+      document.querySelector('.form__pay span').textContent = '$30';
     }
   });
 });
 
-// enable button !!!!!!
+// enable button
+
 const payButton = form.elements.submit;
 const money = document.querySelector('.form__pay span');
 if (money.textContent != '$0') {
@@ -23,10 +23,20 @@ if (money.textContent != '$0') {
 }
 
 // payPAl Amount Bug
-//  need help in this :(((
 
-const paypalLink = document.querySelector('a.form__cc-heading');
-paypalLink.setAttribute('href', `https://paypal.me/nikosolihin/${money}`);
+// const paypalLink = document.querySelector('a.form__cc-heading');
+// paypalLink.setAttribute('href', `https://paypal.me/nikosolihin/${money}`);
+const paypalLink = document.querySelector('a');
+// console.log(paypalLink.removeAttribute('href'));
+// paypalLink.href = 'www.goolge.com';
+function paypalweb() {
+  paypalLink.removeAttribute('href');
+  paypalLink.setAttribute(
+    'href',
+    `https://paypal.me/nikosolihin/${amount.textContent}`
+  );
+}
+paypalLink.addEventListener('click', paypalweb);
 
 // feature-accordition
 
