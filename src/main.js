@@ -1,63 +1,39 @@
-const amount = document.querySelector('.form__total span');
-const subButton = document.querySelector('button[type="submit"]');
+const form = document.forms[0];
+const payment = form.elements.plan;
 
-const buttonAmount = document.querySelector('button span');
-// console.log(buttonAmount.textContent);
-// console.log(subButton.disabled);
-// console.log(amount);
-if (amount.textContent != '$0') {
-  subButton.disabled = false;
-  buttonAmount.textContent = amount.textContent;
-}
-// console.log('Hello, world!');
-// const total = document.querySelector('.form__total');
-// console.log(total);
-// // total.textContent = '';
-// const radio = document.querySelectorAll('input[type="radio"]');
-// console.log(radio);
-// // console.log(radio.checked === true);
-// function radioPayment() {
-//   if (radio.checked === true) {
-//     radio.textContent = '$300';
-//     return true;
-//   }
-// }
-// radio.forEach(radio => radio.addEventListener('change', radioPayment));
-// // radio.forEa.addEventListener('click', radioPayment());
-// const amount = document.querySelector('.form__total span');
-// console.log(amount);
-const inputs = Array.from(document.querySelectorAll('input[type="radio"]'));
+payment.forEach(function(pembayaran) {
+  pembayaran.addEventListener('change', function() {
+    if (form.plan.value === 'Monthly') {
+      document.querySelector('.form__total').textContent = '30$';
+      document.querySelector('.form__pay span').textContent = '30$';
+    }
 
-const annual = document.querySelector('input[value="Annually"]');
-const monthly = document.querySelector('input[value="Monthly"]');
+    if (form.plan.value === 'Annually') {
+      document.querySelector('.form__total').textContent = '300$';
+      document.querySelector('.form__pay span').textContent = '300$';
+    }
+  });
+});
 
-function changeCost() {
-  if (annual.checked === true) {
-    amount.textContent = '300';
-  } else {
-    amount.textContent = '30';
-  }
+// enable button !!!!!!
+const payButton = form.elements.submit;
+const money = document.querySelector('.form__pay span');
+if (money.textContent != '$0') {
+  payButton.disabled = false;
 }
-inputs.forEach(input => input.addEventListener('click', changeCost));
 
-const accs = Array.from(document.querySelectorAll('.accordion'));
-// console.log(accs);
-function newFunction() {
-  this.classList.toggle('accordion--active');
-  //   this.classList.remove('accordion--active');
-}
-accs.forEach(acc => acc.addEventListener('click', newFunction));
-console.log('Hello, world!');
-// const amount = document.querySelector('.form__total span');
-// console.log(amount);
-const paypalLink = document.querySelector('a');
-// console.log(paypalLink.removeAttribute('href'));
-// paypalLink.href = 'www.goolge.com';
-function paypalweb() {
-  paypalLink.removeAttribute('href');
-  paypalLink.setAttribute(
-    'href',
-    `https://paypal.me/nikosolihin/${amount.textContent}`
-  );
-}
-paypalLink.addEventListener('click', paypalweb);
+// payPAl Amount Bug
+//  need help in this :(((
+
+const paypalLink = document.querySelector('a.form__cc-heading');
+paypalLink.setAttribute('href', `https://paypal.me/nikosolihin/${money}`);
+
+// feature-accordition
+
+const questions = document.querySelectorAll('.accordion');
+
+questions.forEach(function(add) {
+  add.addEventListener('click', function() {
+    add.classList.toggle('accordion--active');
+  });
+});
