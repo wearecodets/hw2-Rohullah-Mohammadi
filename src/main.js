@@ -26,14 +26,13 @@ if (money.textContent != '$0') {
 
 // const paypalLink = document.querySelector('a.form__cc-heading');
 // paypalLink.setAttribute('href', `https://paypal.me/nikosolihin/${money}`);
+
 const paypalLink = document.querySelector('a');
-// console.log(paypalLink.removeAttribute('href'));
-// paypalLink.href = 'www.goolge.com';
 function paypalweb() {
   paypalLink.removeAttribute('href');
   paypalLink.setAttribute(
     'href',
-    `https://paypal.me/nikosolihin/${amount.textContent}`
+    `https://paypal.me/nikosolihin/${amount.textContent}
   );
 }
 paypalLink.addEventListener('click', paypalweb);
