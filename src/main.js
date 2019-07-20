@@ -32,7 +32,7 @@ function paypalweb() {
   paypalLink.removeAttribute('href');
   paypalLink.setAttribute(
     'href',
-    `https://paypal.me/nikosolihin/${amount.textContent}
+    `https://paypal.me/nikosolihin/${amount.textContent}`
   );
 }
 paypalLink.addEventListener('click', paypalweb);
